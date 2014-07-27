@@ -1,0 +1,1 @@
+Right now, the script for running a simplified version of this is "Fiber_Analyzer_Run.m", while the older version is "FADTTS_analyze.m" However, these are designed to be able to run independently. Sample group and profile files are also provided.
