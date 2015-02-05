@@ -1,5 +1,5 @@
-R,d,f
-a,0,1
-b,1,0
-e,1,1
-g,0,0
+Subjects,Group1,Group2
+Subject_1,0,1
+Subject_2,1,0
+Subject_5,1,1
+Subject_7,0,0
