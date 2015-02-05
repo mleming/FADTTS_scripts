@@ -33,10 +33,10 @@ end
 
 
 
-[params, myparams, my_covariates, variable_names, all_fiber_data, diffusion_files, design_data] = read_fiber_data(wNIC_file,wNIC_groups_file, measurements)
-arclength = all_fiber_data(:,1) % take first column => arclength from dtitractstatCLP fiber file
-tractdata=[arclength zeros(size(arclength,1),1) zeros(size(arclength,1),1)]
-nofeatures=size(diffusion_files, 1)
+[params, myparams, my_covariates, variable_names, all_fiber_data, diffusion_files, design_data] = read_fiber_data(wNIC_file,wNIC_groups_file, measurements);
+arclength = all_fiber_data(:,1); % take first column => arclength from dtitractstatCLP fiber file
+tractdata=[arclength zeros(size(arclength,1),1) zeros(size(arclength,1),1)];
+nofeatures=size(diffusion_files, 1);
 [NoSetup, arclength_allPos, Xdesign, Ydesign] = MVCM_read(tractdata, design_data, diffusion_files, nofeatures);
 NoSetupT = num2cell(NoSetup);
 [n,L0,p,m] = deal(NoSetupT{:});
@@ -79,13 +79,14 @@ end
 figure(fignum);
 xL = get(gca,'XLim');
 line(xL,[1.3 1.3],'Color','black'); % line at 1.3 to mark significance level
+line(xL,[1.3 1.3],'Color','black');
 hold on;
     for pi=2:p
     h(pi-1) = plot(arclength,-log10(local_p_values_FDR(:,pi-1)),strcat('-',color_map{pi-1},'.'),'LineWidth', 2,'MarkerSize',15);
     hold on;
     end
 hold off;
-quickplot(h, local_p_values_FDR, 'arclength', '-log10(p)', arclength, cat(1, 'Intercept', variable_names'), sprintf('%s %s Corrected Local p-values',fiber_name,params{myparams}));
+quickplot(h, local_p_values_FDR, 'arclength', '-log10(p)', arclength, variable_names', sprintf('%s %s Corrected Local p-values 2group',fiber_name,params{myparams}));
 
 %fignum = fignum + 1;
 %figure(fignum);

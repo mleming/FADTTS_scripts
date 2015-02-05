@@ -56,8 +56,6 @@ function o = global_p_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_numbe
   h(1) = plot(arc_index_points,-log10(Lpvals(:,1)),'-b.','LineWidth', 2,'MarkerSize',15); % Group Cocaine
   hold off;
   
-  
-  
   quickplot(h, Lpvals, 'arclength', '-log10(p)', arc_index_points, variable_names', sprintf('%s %s Local p-values',fiber_name,params{myparams}));
   figure_number = figure_number + 1;
   figure(figure_number);

@@ -1,14 +1,14 @@
 function o = group_avg_std_dev_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_number, measurements, color_map)
 if ~exist('wNIC_file', 'var')
-    [~,wNIC_file,~] = name_select('fa', 'groups');
+    [~,wNIC_file,~] = name_select('FA', 'groups');
 end
 
 if ~exist('wNIC_groups_file', 'var')
-    [~,~,wNIC_groups_file] = name_select('fa', 'groups');
+    [~,~,wNIC_groups_file] = name_select('FA', 'groups');
 end
 
 if ~exist('fiber_name', 'var')
-    [fiber_name,~,~] = name_select('fa', 'groups');
+    [fiber_name,~,~] = name_select('FA', 'groups');
 end
 
 if ~exist('measurements', 'var')
@@ -56,6 +56,6 @@ for mii=1:size(measurements,1)
         hold on;
     end
     hold off;
-    quickplot(h, all_average(mii, 1:end), 'arclength', measurements{mii}, arc_index_points, VarName, sprintf('%s %s Group Average and Standard Deviation',fiber_name,measurements{mii}));
+    quickplot(h, all_average(mii, 1:end), 'arclength', measurements{mii}, arc_index_points, VarName, sprintf('%s %s Group Average and Standard Deviation 2group',fiber_name,measurements{mii}));
     figure_number = figure_number + 1;
 end

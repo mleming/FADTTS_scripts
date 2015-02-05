@@ -6,11 +6,11 @@ if ~exist('wNIC_file', 'var')
 end
 
 if ~exist('wNIC_groups_file', 'var')
-    [~,~,wNIC_groups_file] = name_select('fa', 'groups');
+    [~,~,wNIC_groups_file] = name_select('FA', 'groups');
 end
 
 if ~exist('fiber_name', 'var')
-    [fiber_name,~,~] = name_select('fa', 'groups');
+    [fiber_name,~,~] = name_select('FA', 'groups');
 end
 
 if ~exist('measurements', 'var')
@@ -45,7 +45,7 @@ for mii=1:size(measurements,1)
             end
         end
     end
-    quickplot(h, data, 'arclength', measurements{mii}, arclength, covariates(1:number_of_covariates),sprintf('%s %s',fiber_name,measurements{mii}));
+    quickplot(h, data, 'arclength', measurements{mii}, arclength, covariates(1:number_of_covariates),sprintf('%s %s 2group',fiber_name,measurements{mii}));
     clear h;
     figure_number = figure_number + 1;
 end
