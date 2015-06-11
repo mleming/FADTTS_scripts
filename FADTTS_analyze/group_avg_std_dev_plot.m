@@ -56,6 +56,6 @@ for mii=1:size(measurements,1)
         hold on;
     end
     hold off;
-    quickplot(h, all_average(mii, 1:end), 'arclength', measurements{mii}, arc_index_points, VarName, sprintf('%s %s Group Average and Standard Deviation 2group',fiber_name,measurements{mii}));
+    quickplot(h, [arc_index_points all_average], 'arclength', measurements{mii}, arc_index_points, VarName, sprintf('%s %s Group Average and Standard Deviation 2group',fiber_name,measurements{mii}));
     figure_number = figure_number + 1;
 end

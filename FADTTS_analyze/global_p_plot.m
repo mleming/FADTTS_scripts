@@ -13,7 +13,7 @@ function o = global_p_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_numbe
   end
     
   if ~exist('color_map', 'var')
-    color_map = {'r', 'b', 'g', 'y', 'm', 'k'};
+    color_map = {'r', 'b', 'g', 'y', 'm', 'k','-r', '-b', '-g', '-y', '-m', '-k'};
   end
   
   if ~exist('numPerms', 'var')
@@ -26,7 +26,6 @@ function o = global_p_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_numbe
   [NoSetup, arc_index_points_all_positions, Xdesign, Ydesign] = MVCM_read(tract_data, designdata, diffusion_files, size(diffusion_files, 1));
   NoSetupT = num2cell(NoSetup);
   [~,L0,p,m] = deal(NoSetupT{:});
-  
   [mh]=MVCM_lpks_wob(NoSetup, arc_index_points_all_positions, Xdesign, Ydesign);
   [efitBetas, efitBetas1, InvSigmats, efitYdesign]=MVCM_lpks_wb1(NoSetup, arc_index_points_all_positions, Xdesign, Ydesign, mh);
   [~,~,eSigEta]=MVCM_sif(arc_index_points_all_positions,Ydesign-efitYdesign);
@@ -53,11 +52,14 @@ function o = global_p_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_numbe
   xL = get(gca,'XLim');
   line(xL,[1.3 1.3],'Color','black');  % line at 1.3 to mark significance level
   hold on;
-  h(1) = plot(arc_index_points,-log10(Lpvals(:,1)),'-b.','LineWidth', 2,'MarkerSize',15); % Group Cocaine
+  for i = 1:length(Lpvals(1,1:end))
+        h(i) = plot(arc_index_points,-log10(Lpvals(:,i)),strcat('-',color_map{i},'.'),'LineWidth', 2,'MarkerSize',15); % Group Cocaine
+        hold on;
+  end 
+  %h(1) = plot(arc_index_points,-log10(Lpvals(:,1)),'-b.','LineWidth', 2,'MarkerSize',15); % Group Cocaine
   hold off;
-  
   quickplot(h, Lpvals, 'arclength', '-log10(p)', arc_index_points, variable_names', sprintf('%s %s Local p-values',fiber_name,params{myparams}));
-  figure_number = figure_number + 1;
-  figure(figure_number);
-  quickplot(h, Gpvals, 'arclength', '-log10(p)', arc_index_points, variable_names', sprintf('%s %s Global p-values',fiber_name,params{myparams}));      
+ % figure_number = figure_number + 1;
+ % figure(figure_number);
+ % quickplot(h, Gpvals, 'arclength', '-log10(p)', arc_index_points, variable_names', sprintf('%s %s Global p-values',fiber_name,params{myparams}));      
      
