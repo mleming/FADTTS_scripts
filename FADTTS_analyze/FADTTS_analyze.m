@@ -1,4 +1,4 @@
-function o = FADTTS_analyze(target_directory, binary_groups, autoselect)
+function [] = FADTTS_analyze(target_directory, binary_groups, autoselect)
 
 %addpath '/SAN/vision/camino5/camino/MattLeming/lib/FADTTS/';
 addpath(pwd);

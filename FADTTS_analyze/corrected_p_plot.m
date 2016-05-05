@@ -1,4 +1,4 @@
-function o = corrected_p_plot(wNIC_file, wNIC_groups_file, fiber_name, fignum, measurements, color_map, number_of_permutations)
+function [] = corrected_p_plot(wNIC_file, wNIC_groups_file, fiber_name, fignum, measurements, color_map, number_of_permutations)
 
 
 if ~exist('wNIC_file', 'var')

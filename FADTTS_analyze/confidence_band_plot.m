@@ -1,4 +1,4 @@
-function o = confidence_band_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_number, measurements, color_map, number_of_permutations)
+function [] = confidence_band_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_number, measurements, color_map, number_of_permutations)
 if ~exist('fiber_name', 'var')
     [fiber_name,~,~] = name_select('FA_wNIC', 'groups_wNIC');
 end

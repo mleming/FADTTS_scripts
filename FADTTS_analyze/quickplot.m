@@ -1,4 +1,4 @@
-function o = quickplot(h, data, xl, yl, x_minmax, vname, figuretitle)
+function [] = quickplot(h, data, xl, yl, x_minmax, vname, figuretitle)
     xlabel(xl);
     ylabel(yl);
     xlim([min(x_minmax) max(x_minmax)]);

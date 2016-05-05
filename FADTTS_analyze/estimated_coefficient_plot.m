@@ -1,4 +1,4 @@
-function o = estimated_coefficient_plot(wNIC_file, wNIC_groups_file, fiber_name, fignum, Mnames, color_map, numPerms)
+function [] = estimated_coefficient_plot(wNIC_file, wNIC_groups_file, fiber_name, fignum, Mnames, color_map, numPerms)
   if ~exist('fiber_name', 'var')
     [fiber_name,o,f] = name_select('FA_wNIC', 'groups_wNIC');
   end

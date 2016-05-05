@@ -1,4 +1,4 @@
-function o = binary_group_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_number, measurements, color_map)
+function [] = binary_group_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_number, measurements, color_map)
 
 
 if ~exist('wNIC_file', 'var')
@@ -23,11 +23,15 @@ if ~exist('figure_number', 'var')
 end
 
 if ~exist('color_map', 'var')
-    color_map = {'r', 'b', 'g', 'y', 'm', 'k'};
+    color_map = {'r', 'b', 'g', 'y', 'm', 'k','-r', '-b', '-g', '-y', '-m', '-k'};
 end
 
-[~, ~, number_of_covariates, covariates, all_fiber_data, diffusion_files, design_data] = read_fiber_data(wNIC_file,wNIC_groups_file,measurements);
+[~, ~, number_of_covariates, covariates, all_fiber_data,...
+    diffusion_files, design_data] =...
+    read_fiber_data(wNIC_file,wNIC_groups_file,measurements);
 arclength = all_fiber_data(:,1); % take first column => arclength from dtitractstatCLP fiber file
+
+
 tract_data=[arclength zeros(size(arclength,1),1) zeros(size(arclength,1),1)];
 number_of_features=size(diffusion_files, 1);
 [NoSetup, ~, ~, Ydesign] = MVCM_read(tract_data, design_data, diffusion_files, number_of_features);
@@ -39,7 +43,7 @@ for mii=1:size(measurements,1)
     data = design_data(:,2:end);
     for nii=1:n %subjects
         for dii = 1:number_of_covariates
-            if (data(nii, dii) > 0)
+            if (data(nii, dii) > 0)     
                 h(dii) = plot(arclength,Ydesign(nii,:,mii),strcat('-',color_map{dii}),'LineWidth', 2);
                 hold on;
             end

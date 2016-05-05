@@ -1,4 +1,4 @@
-function o = group_avg_std_dev_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_number, measurements, color_map)
+function [] = group_avg_std_dev_plot(wNIC_file, wNIC_groups_file, fiber_name, figure_number, measurements, color_map)
 if ~exist('wNIC_file', 'var')
     [~,wNIC_file,~] = name_select('FA', 'groups');
 end
@@ -7,9 +7,9 @@ if ~exist('wNIC_groups_file', 'var')
     [~,~,wNIC_groups_file] = name_select('FA', 'groups');
 end
 
-if ~exist('fiber_name', 'var')
-    [fiber_name,~,~] = name_select('FA', 'groups');
-end
+%if ~exist('fiber_name', 'var')
+%    [fiber_name,~,~] = name_select('FA', 'groups');
+%end
 
 if ~exist('measurements', 'var')
     measurements=cell(1,1);  % if we consider m response variables, cells(m,1).

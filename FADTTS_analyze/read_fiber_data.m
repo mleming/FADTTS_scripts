@@ -45,9 +45,6 @@ groups(2:end,:) = sortrows(groups(2:end,:));
 data(:,2:end) = sortrows(data(:,2:end)')';
 diffusion_files{1} = cellfun(@str2double, data(2:end, find(ismember(data(1,1:end), groups(2:end,1)))));
 all_fiber_data = cellfun(@str2double, [data(2:end,1) data(2:end, find(ismember(data(1,1:end), groups(2:end,1))))]);
-size(ones(size(diffusion_files{1}(1,:),2),1))
-size(cellfun(@str2double, groups(2:end, 2:end)))
-
 designdata = [ones(size(diffusion_files{1}(1,:),2),1) cellfun(@str2double, groups(2:end, 2:end))];
 
 
